@@ -5,7 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import CompanyCard from "./cards/CompanyCard";
 
 function App() {
-  const [currentLength, setCurrentLength] = useState(20);
+  const [currentLength, setCurrentLength] = useState(0);
   const [data, setData] = useState([]);
   const [currentData, setCurrentData] = useState([]);
 
@@ -15,7 +15,8 @@ function App() {
         "https://api.glencoco.io/public/front_end/exercise"
       );
       setData(res.data.companies);
-      setCurrentData(res.data.companies.slice(0, 20));
+      setCurrentLength(20);
+      setCurrentData(res.data.companies.slice(0, 30));
     };
     fetchData();
   }, []);
